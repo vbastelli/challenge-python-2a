@@ -344,22 +344,9 @@ def verificar_estoque_sobrando(estoque):
             if quantidade > ideal:
                 print(f"- {produto} está com {quantidade} em {unidade} (ideal: {ideal})")
 
-def obter_enderecos_por_id(estoque, item_id):
-    for nome_produto, dados in estoque.items():
-        if dados.get("id") == item_id:
-            locais = dados.get("locais", {})
-            resultado = {}
-            for nome_local, info in locais.items():
-                endereco = info.get("endereco")
-                if endereco:
-                    resultado[nome_local] = endereco
-            return resultado
-    return f"Item com ID '{item_id}' não encontrado."
-
-
 
 
 verificar_estoque_baixo(estoque_dasa)
+
 verificar_estoque_sobrando(estoque_dasa)
 
-print(obter_enderecos_por_id(estoque_dasa, "010"))
